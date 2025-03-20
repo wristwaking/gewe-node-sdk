@@ -148,4 +148,4 @@ class GeweBot {
     }
 }
 
-module.exports = GeweBot;
+export default GeweBot;
