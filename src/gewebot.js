@@ -1,6 +1,3 @@
-const axios = require('axios');
-require('dotenv').config();
-
 class GeweBot {
     constructor(appId = null, token = null, uuid = null) {
         this.appId = appId || process.env.appId;
