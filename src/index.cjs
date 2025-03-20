@@ -216,7 +216,7 @@ class GeweBot {
 
         return await this.postRequest("/gewe/v2/api/media/downloadImage", data);
     }
-    
+
     async downloadImage(options = {}) {
         const { xml } = options;
         if (!xml) {
@@ -229,7 +229,7 @@ class GeweBot {
             xml: xml
         };
     
-        return await this.postRequest("/gewe/v2/api/media/downloadImage", data);
+        return await this.postRequest("/gewe/v2/api/message/downloadImage", data);
     }
 
     async getClassroomMemberList(classroomIdOrOptions) {
