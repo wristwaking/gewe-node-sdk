@@ -197,25 +197,18 @@ class GeweBot {
         return await this.postRequest("/gewe/v2/api/message/postMiniApp", data);
     }
 
-    async downloadImage(toWxidOrOptions, xml = '', type = 2) {
-        const options = typeof toWxidOrOptions === 'string'
-            ? { toWxid: toWxidOrOptions, xml, type }
-            : { xml, type, ...toWxidOrOptions };
-
-        if (!options.toWxid) {
-            throw new Error('toWxid is needed.');
-        }
-        if (!options.xml) {
+    async downloadImage(options = {}) {
+        const { xml } = options;
+        if (!xml) {
             throw new Error('XML data is required.');
         }
-
+    
         const data = {
             appId: this.appId,
-            type: options.type,
-            toWxid: options.toWxid,
-            xml: options.xml
+            type: 2,
+            xml: xml
         };
-
+    
         return await this.postRequest("/gewe/v2/api/media/downloadImage", data);
     }
 

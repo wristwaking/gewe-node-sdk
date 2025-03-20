@@ -216,26 +216,19 @@ class GeweBot {
 
         return await this.postRequest("/gewe/v2/api/media/downloadImage", data);
     }
-
-    async downloadImage(toWxidOrOptions, xml = '') {
-        const options = typeof toWxidOrOptions === 'string'
-            ? { toWxid: toWxidOrOptions, xml }
-            : { xml, ...toWxidOrOptions };
-
-        if (!options.toWxid) {
-            throw new Error('toWxid is needed.');
-        }
-        if (!options.xml) {
+    
+    async downloadImage(options = {}) {
+        const { xml } = options;
+        if (!xml) {
             throw new Error('XML data is required.');
         }
-
+    
         const data = {
             appId: this.appId,
             type: 2,
-            toWxid: options.toWxid,
-            xml: options.xml
+            xml: xml
         };
-
+    
         return await this.postRequest("/gewe/v2/api/media/downloadImage", data);
     }
 
