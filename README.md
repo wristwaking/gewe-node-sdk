@@ -1,6 +1,8 @@
 # gewe-node-sdk
 微信机器人gewe框架sdk工具包。通过node语言环境实现。通过axios实现封装api接口请求。
 
+npm 仓库地址：https://www.npmjs.com/package/gewe-node-sdk
+
 ## 安装
 ```bash
 npm install gewe-node-sdk
