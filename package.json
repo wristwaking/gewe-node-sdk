@@ -1,10 +1,9 @@
 {
     "name": "gewe-node-sdk",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "微信机器人gewe框架sdk工具包。通过node语言环境实现。",
     "main": "src/index.cjs",
-    "module": "src/index.js",
-    "type": "module",
+    "module": "src/index.mjs",
     "scripts": {
         "test": "echo \"错误：未指定测试脚本\" && exit 1"
     },
@@ -18,7 +17,7 @@
     "license": "MIT",
     "exports": {
         ".": {
-            "import": "./src/index.js",
+            "import": "./src/index.mjs",
             "require": "./src/index.cjs"
         }
     },
