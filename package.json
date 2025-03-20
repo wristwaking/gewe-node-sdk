@@ -1,0 +1,30 @@
+{
+    "name": "gewe-bot",
+    "version": "1.0.0",
+    "description": "微信机器人gewe框架sdk工具包。通过node语言环境实现。",
+    "main": "src/geweBot.js",
+    "type": "module",
+    "scripts": {
+      "test": "echo \"错误：未指定测试脚本\" && exit 1"
+    },
+    "keywords": [
+      "微信",
+      "gewe",
+      "api",
+      "sdk"
+    ],
+    "author": "wristwaking 1620444902@qq.com",
+    "license": "MIT",
+    "dependencies": {
+      "axios": "^1.6.8",
+      "dotenv": "^16.4.5"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/wristwaking/gewe-node-sdk.git"
+    },
+    "bugs": {
+      "url": "https://github.com/wristwaking/gewe-node-sdk/issues"
+    },
+    "homepage": "https://github.com/wristwaking/gewe-node-sdk#readme"
+  }
