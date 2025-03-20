@@ -5,29 +5,67 @@
 ```bash
 npm install gewe-node-sdk
 ```
+
+## 读取环境变量
+```
+appId: xxx
+token: xxx
+```
+
 ## 使用方法
+commonjs 模式
 ```js
 const GeweBot = require('gewe-node-sdk');
 
 async function main() {
     const bot = new GeweBot('你的-app-id', '你的-token');
-    const contacts = await bot.getContacts();
+    const contacts = await bot.getContactsList();
     console.log(contacts);
 }
 
 main();
 ```
+modulejs 模式
+```js
+import GeweBot from 'gewe-node-sdk';
 
-## 详细功能
+async function main() {
+    const bot = new GeweBot('你的-app-id', '你的-token');
+    const contacts = await bot.getContactsList();
+    console.log(contacts);
+}
+
+main();
 ```
-getContacts() - 获取通讯录列表
-getContactsBriefInfo(wxids) - 获取联系人简要信息
-getContactsDetailInfo(wxids) - 获取联系人详细信息
-getChatroomInfo(chatroomId) - 获取群信息
-sendTextMsg(content, toWxid, ats) - 发送文本消息
-sendImageMsg(imgUrl, toWxid) - 发送图片消息
-······
+配置 package.json
+```json
+{
+    "type": "module",
+}
 ```
+
+## GeweBot 文档
+
+
+| 函数名称 | 描述 |
+|----------|------|
+| `constructor(appId = null, token = null, uuid = null)` | 初始化 GeweBot，使用 appId（默认取环境变量）、token（默认取环境变量）和未使用的 uuid |
+| `setToken(token)` | 设置 API 请求的认证令牌 |
+| `setAppId(appId)` | 设置 API 请求的应用 ID |
+| `setCallback(callbackUrl)` | 设置登录操作回调 URL |
+| `getPersonalProfile()` | 获取当前用户个人资料信息 |
+| `getContactsList()` | 获取完整的联系人列表 |
+| `getContactsBriefInfo(wxids)` | 获取指定联系人 ID 简要信息 |
+| `getContactsDetailInfo(wxids)` | 获取指定联系人 ID 详细信息 |
+| `getChatroomInfo(chatroomId)` | 获取指定微信群的信息 |
+| `sendTextMessage(toWxid, content, ats = null)` | 向指定联系人发送文本消息：可选包含 @ |
+| `sendImageMessage(toWxid, imgUrl)` | 向指定联系人发送图片消息 |
+| `sendLinkMessage(toWxid, imgUrl, title, desc, linkUrl, thumbUrl)` | 向指定联系人发送带缩略图的链接消息 |
+| `sendNameCardMessage(toWxid, nickName, nameCardWxid)` | 向指定联系人发送名片消息 |
+| `getClassroomMemberList(classroomId)` | 获取指定微信群的成员列表 |
+| `searchContacts(contactsInfo)` | 根据提供的条件搜索联系人 |
+| `addContacts(scene = 3, content, v3, v4, option = 2)` | 添加新联系人：包括场景、验证内容、v3/v4 字段和添加选项 |
+| `agreeJoinClassroom(url)` | 通过邀请 URL 同意加入聊天室 |
 
 ## 发布步骤
 
